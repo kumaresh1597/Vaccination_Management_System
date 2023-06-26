@@ -4,6 +4,9 @@ import com.example.Vaccination.Management.Enums.Gender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -23,6 +26,17 @@ public class User {
     @JsonIgnore
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Dose dose;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Appointment> appointmentList = new ArrayList<>();
+
+    public List<Appointment> getAppointmentList() {
+        return appointmentList;
+    }
+
+    public void setAppointmentList(List<Appointment> appointmentList) {
+        this.appointmentList = appointmentList;
+    }
 
     public Dose getDose() {
         return dose;
