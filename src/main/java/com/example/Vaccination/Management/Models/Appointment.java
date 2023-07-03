@@ -1,5 +1,6 @@
 package com.example.Vaccination.Management.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.boot.autoconfigure.web.WebProperties;
@@ -19,10 +20,12 @@ public class Appointment {
     private Date appointmentDate;
     private LocalTime appointmentTime;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn
     private Doctor doctor;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn
     private User user;

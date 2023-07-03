@@ -1,5 +1,6 @@
 package com.example.Vaccination.Management.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public class VaccinationCenter {
     private String address;
     private int capacity;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "vaccinationCenter",cascade = CascadeType.ALL)
     private List<Doctor> doctorList;
 

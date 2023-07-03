@@ -1,6 +1,7 @@
 package com.example.Vaccination.Management.Services;
 
 import com.example.Vaccination.Management.Dtos.RequestDtos.associateDocterDto;
+import com.example.Vaccination.Management.Enums.Gender;
 import com.example.Vaccination.Management.Exceptions.CenterNotFoundException;
 import com.example.Vaccination.Management.Exceptions.DoctorNotFoundException;
 import com.example.Vaccination.Management.Exceptions.EmailAlreadyExistsException;
@@ -12,6 +13,7 @@ import com.example.Vaccination.Management.Repository.VaccinationCenterRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,5 +54,28 @@ public class DoctorService {
         vaccinationCenterRepository.save(center.get());
 
         return "Doctor with "+doctor.get().getDocId()+" is associated with center "+center.get().getId();
+    }
+
+    public List<Doctor> getDoctorsWithMorethan10Appointments() {
+        List<Doctor> doctorList = doctorRepository.findAll();
+        List<Doctor> resultList = new ArrayList<>();
+        for(Doctor doctor : doctorList){
+            if(doctor.getAppointmentList().size() >= 10){
+                resultList.add(doctor);
+            }
+        }
+        return resultList;
+    }
+
+    public List<Doctor> getDoctorsGreaterThanAgeByGender(int age, Gender gender) {
+        List<Doctor> doctorList = doctorRepository.findAll();
+        List<Doctor> resultList = new ArrayList<>();
+        for(Doctor doctor : doctorList){
+            if(doctor.getAge() > age && doctor.getGender().equals(gender)){
+                resultList.add(doctor);
+            }
+        }
+        return resultList;
+ //       return doctorRepository.getAllByGenderAndAge(age,gender);
     }
 }
