@@ -1,6 +1,7 @@
 package com.example.Vaccination.Management.Controllers;
 
 import com.example.Vaccination.Management.Dtos.RequestDtos.associateDocterDto;
+import com.example.Vaccination.Management.Dtos.RequestDtos.updateDoctorEmailDto;
 import com.example.Vaccination.Management.Enums.Gender;
 import com.example.Vaccination.Management.Exceptions.CenterNotFoundException;
 import com.example.Vaccination.Management.Exceptions.DoctorNotFoundException;
@@ -46,6 +47,16 @@ public class DoctorController {
     @GetMapping("/getDoctorsGreaterThanAgeByGender")
     public List<Doctor> getDoctorsGreaterThanAgeByGender(@RequestParam("age") int age, @RequestParam("gender")Gender gender){
         return doctorService.getDoctorsGreaterThanAgeByGender(age,gender);
+    }
+
+    @PutMapping("/updateAgeOfDoctorByEmail")
+    public ResponseEntity<String> updateAgeOfDoctorByEmail(@RequestBody updateDoctorEmailDto emailDto){
+        try {
+            String response = doctorService.updateAge(emailDto);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
     }
 
 }

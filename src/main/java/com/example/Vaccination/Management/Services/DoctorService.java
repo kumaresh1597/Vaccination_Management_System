@@ -1,6 +1,7 @@
 package com.example.Vaccination.Management.Services;
 
 import com.example.Vaccination.Management.Dtos.RequestDtos.associateDocterDto;
+import com.example.Vaccination.Management.Dtos.RequestDtos.updateDoctorEmailDto;
 import com.example.Vaccination.Management.Enums.Gender;
 import com.example.Vaccination.Management.Exceptions.CenterNotFoundException;
 import com.example.Vaccination.Management.Exceptions.DoctorNotFoundException;
@@ -77,5 +78,12 @@ public class DoctorService {
         }
         return resultList;
  //       return doctorRepository.getAllByGenderAndAge(age,gender);
+    }
+
+    public String updateAge(updateDoctorEmailDto emailDto) {
+        Doctor doctor = doctorRepository.findByEmail(emailDto.getEmail());
+        doctor.setAge(emailDto.getAge());
+        doctorRepository.save(doctor);
+        return "Age updated successfully";
     }
 }
