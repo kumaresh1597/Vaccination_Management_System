@@ -19,6 +19,27 @@ with room for further customization and expansion based on specific requirements
 
 # Results
 
+1) Get user by email
+
+![Get user by email](https://github.com/kumaresh1597/Vaccination_Management_System/assets/115056892/76b9c505-abe4-4496-bf7b-6912937e5faf)
+
+2) Get Vaccination date
+
+![Get user by email](https://github.com/kumaresh1597/Vaccination_Management_System/assets/115056892/646a9ca1-142e-4925-8205-c92795541cbb)
+
+3) Get doctors by age gender and center
+
+![Get doctor by age gender and center ID](https://github.com/kumaresh1597/Vaccination_Management_System/assets/115056892/cd517ad1-0ece-4088-b451-14906bd3f410)
+
+4) Get doctors having more tha 10 appointments
+
+![Doctors more than 10 appointments](https://github.com/kumaresh1597/Vaccination_Management_System/assets/115056892/f6afb558-8f3d-4c36-9c37-c1db01365341)
+
+5) Update doctor age by emailId
+
+![update Age of the doctore by email](https://github.com/kumaresh1597/Vaccination_Management_System/assets/115056892/090a3600-f50f-4e74-bb14-47f16580e496)
+
+
 # Links
 https://www.linkedin.com/in/kumaresanm1597
 
