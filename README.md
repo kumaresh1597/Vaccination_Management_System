@@ -12,3 +12,15 @@ specific attributes to capture relevant information. Controllers and endpoints a
 Services handle the business logic, while repositories interact with the underlying database, which can be a relational database like MySQL. 
 This low-level design provides a solid foundation for building a Spring Boot application to manage doctors, users, centers, doses, and appointments, 
 with room for further customization and expansion based on specific requirements.
+
+# Tech stack and tools
+- Spring Boot,JPA,Hibernate,MySQL,Java,Maven 
+- Postman,Intellij,workbench
+
+# Results
+
+# Links
+https://www.linkedin.com/in/kumaresanm1597
+
+# Reach me
+kumaresh.1597@gmail.com
